@@ -15,8 +15,11 @@ class Config():
     配置参数
     '''
     input_size = [1,3,224, 224] # 图像大小[batch,channel,h,w]
-    platform = {'cpu', 'cuda:1'} # 测试平台 支持CPU、单GPU
+    platform = {'cpu','cuda:1'}   # 测试平台 支持CPU、单GPU
     model=resnet18() # 网络
+    warmup_nums = 100 # 预热迭代次数
+    iter_nums=600  # 计算耗时均值时的迭代次数
+
 
 
 def main():
@@ -32,7 +35,7 @@ def main():
     print('{:<30}  {:<8}'.format('Number of parameters: ', params))
 
     # 显存占用
-    # nvidia-smi查看即可
+    print('GPU memory: please use the command：nvidia-smi')
 
 
 def cal_time(cfg):
@@ -48,14 +51,14 @@ def cal_time(cfg):
             device = torch.device(str(platform))
         input_size=cfg.input_size
         model=cfg.model
-        iter_nums=100           # 100次迭代的耗时均值
-        warmup_iter_nums=20     # 预热迭代次数
+        iter_nums=cfg.iter_nums         # 计算耗时均值时的迭代次数
+        warmup_nums=cfg.warmup_nums     # 预热迭代次数
 
         dump_input = torch.ones(input_size).to(device)
         model.to(device).eval()
         with torch.no_grad():
             # 预热
-            for _ in range(warmup_iter_nums):
+            for _ in range(warmup_nums):
                 model(dump_input)
                 if 'cuda' in platform:
                     torch.cuda.synchronize()
@@ -63,8 +66,9 @@ def cal_time(cfg):
             start = time.time()
             for _ in range(iter_nums):
                 model(dump_input)
-            if 'cuda' in platform:
-                torch.cuda.synchronize()
+                # 每次推理，均同步一次。算均值
+                if 'cuda' in platform:
+                    torch.cuda.synchronize()
             end = time.time()
             total_time=((end - start) * 1000)/float(iter_nums)
             print(str(platform) +' is  %.2f ms/img'%total_time)
