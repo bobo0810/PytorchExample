@@ -21,8 +21,9 @@
      # 进行编译
      cd <mnn-root-dir>
      mkdir build && cd build
-     # 打开 编译DEMO、编译模型转换器
-     cmake -DMNN_BUILD_DEMO=ON  -MNN_BUILD_CONVERTER=ON   ..
+     # 打开 编译DEMO、编译模型转换器  
+     # https://www.yuque.com/mnn/cn/cmake_opts CMake参数前均加字母D
+     cmake -DMNN_BUILD_DEMO=ON  -DMNN_BUILD_CONVERTER=ON   ..
      make -j8
    ```
 
