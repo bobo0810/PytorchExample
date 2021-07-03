@@ -1,14 +1,23 @@
 # PytorchGuide
 
-Pytorch入坑指南
+### [AMP](./AMP/README.md)
 
+- 自动混合精度训练
 
+### [DDP](./DDP/readme.md)
 
-### [模型分析](./ModelAnalysis/readme.md)
+- 分布式数据并行（多机多卡）
 
-包含FLOPs|GPU占用|参数量|耗时(CPU/GPU)
+### [模型统计](./ModelAnalysis/readme.md)
 
-### [模型转换](./ModelConver/readme.md)
+- 参数量|计算量|GPU占用|耗时(CPU/GPU)
 
-Pytorch->ONNX->NCNN or MNN
+### [移动端部署](./ModelConver/readme.md)
+
+- Pytorch->ONNX-> NCNN or MNN
+
+### [服务端部署](./TensorRT/readme.md)
+
+- Pytorch->TensorRT
+- Pytorch->ONNX->TensorRT
 
