@@ -4,17 +4,24 @@ TensorRT仅适用`Nvidia GPU`
 
 ## 模型转化
 
+|       | 优点   | 缺点         |
+| ----- | ------ | ------------ |
+| 方案1 | 最简单 | 支持算子较少 |
+| 方案2 | 最通用 | 较复杂       |
+
 ### 方案1
 
 - 环境： (1)部署TensorRT  (2)安装torch2trt
 
-- 通过torch2trt可直接转为TensorRT。经测试，推理加速一倍左右，效果因模型而异。
+- `torch2trt.py`   通过torch2trt库，Pytorch直接转为TensorRT。
+
+> 经测试，推理加速一倍左右，效果因模型而异。
 
 ### 方案2
 
-- Pytorch->ONNX->TensorRT
+- 环境： (1)部署TensorRT  (2)安装onnx、pycuda
 
-- 待更
+- `torch2onnx2trt.py`   Pytorch->ONNX->TensorRT
 
 ## 流程
 
