@@ -1,5 +1,9 @@
 # PytorchGuide
 
+#### 收录到[PytorchNetHub](https://github.com/bobo0810/PytorchNetHub)
+
+
+
 ### [AMP](./AMP/README.md)
 
 - 自动混合精度训练
