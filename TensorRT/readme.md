@@ -27,6 +27,10 @@ TensorRT仅适用`Nvidia GPU`
 
 ![avatar](./imgs/conver2trt.svg)
 
+## 更多库
+- [torch2trt](https://github.com/NVIDIA-AI-IOT/torch2trt)
+- [torch2trt_dynamic](https://github.com/grimoire/torch2trt_dynamic)
+- [TRTorch](https://github.com/NVIDIA/TRTorch)
 
 
 ## 参考
