@@ -23,7 +23,7 @@
 - Pytorch->TensorRT
 - Pytorch->ONNX->TensorRT
 
-### [数据相关](./DataTools/readme.md)
+### [数据相关](https://github.com/bobo0810/PytorchGuide/tree/main/DataTools)
 
 - YOLO->VOC 标签格式转化
 - YOLO 结果可视化 
