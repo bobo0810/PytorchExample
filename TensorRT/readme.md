@@ -1,47 +1,34 @@
-# 服务端部署
 
-TensorRT仅适用`Nvidia GPU`
+# TensorRT最佳实践
 
-## 模型转化
 
-|       | 优点   | 缺点         |
-| ----- | ------ | ------------ |
-| 方案1 | 最简单 | 支持算子较少 |
-| 方案2 | 最通用 | 较复杂       |
+# 示例
+- TensorRT API
+  - [最简示例](./lenet.py)  
+  - 访问[TensorRTx](https://github.com/wang-xinyu/tensorrtx)了解更多
 
-### 方案1
+- 解析ONNX 
+  - [固定尺度](./main.py)  
+  - 动态维度: 待更新 
+  
+ 
+# 整体流程
+## 1.构建引擎
+![avatar](./imgs/build.svg)
+## 2.推理
+![avatar](./imgs/infer.svg)
 
-- 环境： (1)部署TensorRT  (2)安装torch2trt
 
-- `torch2trt.py`   通过torch2trt库，Pytorch直接转为TensorRT。
 
-> 经测试，推理加速一倍左右，效果因模型而异。
-
-### 方案2
-
-- 环境： (1)部署TensorRT  (2)安装onnx、pycuda
-
-- `torch2onnx2trt.py`   Pytorch->ONNX->TensorRT
-
-## 流程
-
-![avatar](./imgs/conver2trt.svg)
-
-## 更多库
+## 三方库
 - [torch2trt](https://github.com/NVIDIA-AI-IOT/torch2trt)
-- [torch2trt_dynamic](https://github.com/grimoire/torch2trt_dynamic)
 - [TRTorch](https://github.com/NVIDIA/TRTorch)
-
+> Torch直接转为TRT，但支持算子少，不通用。
 
 ## 参考
 
-[TensorRT部署](http://zengzeyu.com/2020/07/09/tensorrt_01_installation/)
-
-[TensorRT部署常见错误](https://blog.csdn.net/QFJIZHI/article/details/107335865)
-
-[TensorRT加速Pytorch](https://blog.csdn.net/leviopku/article/details/112963733)
-
-[torch2trt](https://github.com/NVIDIA-AI-IOT/torch2trt)
-
-
-
+- [TensorRT部署](http://zengzeyu.com/2020/07/09/tensorrt_01_installation/)
+- [TensorRT部署常见错误](https://blog.csdn.net/QFJIZHI/article/details/107335865)
+- [TensorRT加速Pytorch](https://blog.csdn.net/leviopku/article/details/112963733)
+- [TensorRTx](https://github.com/wang-xinyu/tensorrtx)
+- [TensorRT：深度学习推理加速](https://www.nvidia.cn/content/dam/en-zz/zh_cn/assets/webinars/oct16/Gary_TensorRT_GTCChina2019.pdf)

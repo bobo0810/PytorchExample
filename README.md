@@ -16,11 +16,11 @@
 
 ### [移动端部署](./ModelConver/readme.md)
 
-- Pytorch->ONNX-> NCNN or MNN
+- Pytorch->ONNX-> NCNN / MNN
 
-### [服务端部署](./TensorRT/readme.md)
+### [TensorRT最佳实践](./TensorRT/readme.md)
 
-- Pytorch->TensorRT
+- TensorRT API
 - Pytorch->ONNX->TensorRT
 
 ### [数据相关](https://github.com/bobo0810/PytorchGuide/tree/main/DataTools)
