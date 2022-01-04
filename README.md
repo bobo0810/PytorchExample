@@ -30,4 +30,12 @@
 
 ### 小工具
 
-- Pytest: 测试框架  [中文文档](https://learning-pytest.readthedocs.io/zh/latest/)
+- Pytest: 测试框架 
+
+```bat
+pytest  test.py             //自动运行 命名包含"test"的函数
+pytest  test.py::test_hello //指定运行某个函数
+pytest  -s test.py          // 同时显示测试函数中print()输出
+```
+
+- Fire: 自动生成命令行接口，方便运行指定函数
