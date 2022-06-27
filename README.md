@@ -15,7 +15,7 @@
 
 - Pytorch->ONNX-> NCNN / MNN
 
-### [TensorRT最佳实践](./TensorRT/readme.md)
+### [TensorRT部署](./TensorRT/readme.md)
 
 - TensorRT API
 - Pytorch->ONNX->TensorRT
